@@ -5,6 +5,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #00b074 #e3e3e3;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #e3e3e3;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #00b074;
+    border-radius: 10px;
+    border: 2px double #e0e0e0;
+  }
+
+
+
 /********** Template CSS **********/
 :root {
 	--primary: #00B074;
@@ -27,6 +51,7 @@ body {
   font-size: 16px;
   font-family: 'Work Sans', sans-serif;
   color: black;
+  overflow-x: hidden;
 }
 
 /* =======================================
@@ -296,7 +321,28 @@ h1 {
   text-decoration: none;
 }
 
+.jobs-container .tab-content .job-item i{
+  color: var(--primary);
+}
 
+.jobs-container .tab-content .more-jobs{
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+}
 
+.jobs-container .tab-content .more-jobs:hover{
+  scale: 1.1;
+}
 
+/* Add icon taken from lordicon */
 
+.text {
+  display: none;
+}
+
+.add-icon:hover .text {
+  display: inline;
+}

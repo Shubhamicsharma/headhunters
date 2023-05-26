@@ -23,8 +23,8 @@
 
 
 <section class="banner">
-  <h1 class="wow bounceInUp mb-5">List Of All Jobs</h1>
-  <div class="search-box">
+  <h1 class="wow mb-5 animate__animated animate__fadeInDown">Create A Better Future For Yourself</h1>
+  <div class="search-box animate__animated animate__fadeInUp">
     <form action="/jobs" method="get">
       <input type="text" class="form-control input m-4" placeholder="Enter Company Name/ Job Category" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="search">
       <button type="submit" class="btn btn-info submit-button" value="search">Search</button>
@@ -36,7 +36,15 @@
     </form> -->
   </div>
 </section>
-<a class="btn btn-danger" href="/jobs/new">Add a new job</a>
+<a class="add-icon" href="/jobs/new" style="text-decoration: none;">
+  <lord-icon
+    src="https://cdn.lordicon.com/xzksbhzh.json"
+    trigger="hover"
+    colors="primary:#08a88a,secondary:#d1fad7"
+    style="width:4rem;height:4rem">
+  </lord-icon>
+  <span class="text" style="color: black;">Add a new Job</span>
+</a>
 
 
 <div class="jobs-container p-5 me-0">
@@ -56,13 +64,11 @@
     
 </div>
 
-<div id="clicked">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit temporibus, voluptatibus optio vitae deleniti officia at provident aut obcaecati quo praesentium architecto eos nostrum quos odio deserunt veritatis illum. Quisquam.
-</div>
 
 <%- include('./partials/contacts-section.ejs') %>
 
 
+<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
 
 
 <!-- MDB -->

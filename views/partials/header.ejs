@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Head Hunters</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playball&family=Tangerine&display=swap" rel="stylesheet">
@@ -16,7 +20,7 @@
     
     
     <!-- Navbar !-->
-    <nav class="my-navbar">
+    <nav class="my-navbar animate__animated animate__backInDown animate__fast">
         <!-- Logo !-->
         <div>
             <i id="logo" class="fa-sharp fa-solid fa-square-h fa-beat-fade fa-2xl me-2" style="color: #ffffff;"></i>
@@ -42,10 +46,7 @@
             </li>
             <% if (!currentUser) { %>
             <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/register">Register</a>
+                <a class="nav-link" href="/login">Login or Register</a>
             </li>
             <% } else { %>
             <li class="nav-item">

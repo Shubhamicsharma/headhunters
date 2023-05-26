@@ -63,7 +63,8 @@ exports.createJob = async function(req, res) {
 		//! push a new notificatoin
 		let newNotif = new Notification({
 			body: 'A new job has been posted',
-			author: newJob.name
+			author: newJob.name,
+			image: newJob.image
 		});
 		await newNotif.save();
 		req.flash('success', 'job successfully posted');
@@ -124,7 +125,8 @@ exports.updateJob = async function(req, res) {
 		//! push a new notificatoin
 		let newNotif = new Notification({
 			body: 'A job has been updated',
-			author: updatedJob.name
+			author: updatedJob.name,
+			image: updatedJob.image
 		});
 		await newNotif.save();
 		res.redirect(`/jobs/${id}`);

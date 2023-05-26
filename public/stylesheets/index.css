@@ -29,6 +29,7 @@ body{
 }
 
 .banner h1, .banner .search-box{
+  
   position: static;
 }
 
@@ -83,4 +84,11 @@ body{
 
 .jobs-div .card-body a:hover{
   background-image: linear-gradient(to left, var(--primary-100), var(--accent-100));
+}
+.text {
+  display: none;
+}
+
+.add-icon:hover .text {
+  display: inline;
 }

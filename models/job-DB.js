@@ -10,7 +10,7 @@ let jobSchema = new mongoose.Schema({
 	// package: Number,
 	// cgpa: Number,
 	deadline: {
-		type: Date,
+		type: String,
 		default: Date.now
 	},
 	createdAt: {

@@ -6,6 +6,7 @@ let { isLoggedIn, isAdmin } = require('../middlewares/index');
 router.get('/notifications', async function(req, res) {
 	try {
 		let allNotifs = await Notification.find({});
+		allNotifs.reverse();
 		res.render('index-notif.ejs', { allNotifs });
 	} catch (error) {
 		console.log('error while fetching notifs', error);
@@ -20,7 +21,8 @@ router.post('/notifications', async function(req, res) {
 	try {
 		let notif = new Notification({
 			body: req.body.body,
-			author: req.body.author
+			author: req.body.author,
+			image: req.body.image
 		});
 		await notif.save();
 		res.redirect('/notifications');
