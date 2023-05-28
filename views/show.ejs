@@ -3,7 +3,7 @@
 <div style="height: 6rem; width: 100%; background: none;"></div>
 
 
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/stylesheets/show.css">
 <!-- <h1>show page for <%= job.name %></h1>
 <div><%= job.address %></div>
 <div class="row">
@@ -29,7 +29,32 @@
 <div class="container-xxl py-4 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="row gy-5 gx-4">
-            <div class="col-lg-8">
+            <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item pt-2">Home</li>
+                  <li class="breadcrumb-item pt-2">Jobs</li>
+                  <li class="breadcrumb-item pt-2 active" aria-current="page">Show page for <%= job.name %></li>
+                  <li class="ms-auto ">
+                    <a class="" href="/jobs/<%= job._id %>/edit"><lord-icon
+                      src="https://cdn.lordicon.com/rfbqeber.json"
+                      trigger="hover"
+                      colors="primary:#d1fad7,secondary:#9cf4a7,tertiary:#0a5c15"
+                      style="width:2.5rem;height:2.5rem">
+                  </lord-icon></a>
+                    <form style="display: inline-block;" action="/jobs/<%= job._id %>?_method=DELETE" method="post">
+                      <a class="" type="submit" value="delete">
+                        <lord-icon
+                          src="https://cdn.lordicon.com/qjwkduhc.json"
+                          trigger="hover"
+                          colors="primary:#646e78,secondary:#e83a30,tertiary:#ebe6ef"
+                          style="width:2.5rem;height:2.5rem">
+                        </lord-icon>
+                      </a>
+                    </form>
+                  </li>
+                </ol>
+            </nav>
+            <div class="col-lg-8 bg-light p-4 rounded">
                 <div class="d-flex align-items-center mb-5">
                     <img class="flex-shrink-0 img-fluid" src="<%= job.image %>" alt="" style="width: 5rem; height: auto; ">
                     <div class="text-start ps-4">
@@ -51,6 +76,33 @@
                     
                 </div>
 
+                
+            </div>
+            <div class="col-lg-4 job-summary">
+                <div class="bg-light rounded p-4 pb-4 mb-2 wow slideInUp" data-wow-delay="0.1s">
+                    <h4 class="mb-4">Job Summery</h4>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: <%= job.createdAt %></p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: 789 Position</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Job Category: <%= job.category %></p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: <%= job.type %></p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Experience: <%= job.experience %></p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: &#8377 <%= job.package %></p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Location: <%= job.address %></p>
+                    
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Min CGPA Required: <%= job.cgpa %></p>
+                    <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: <%= job.deadline %></p>
+                </div>
+                <div class="bg-light rounded p-4 pt-4 wow slideInUp" data-wow-delay="0.1s">
+                    <h4 class="mb-4">Company Detail</h4>
+                    <p><%= job.aboutCompany %></p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Company Phone: <%= job.companyPhone %></p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Company Email: <%= job.companyEmail %></p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Company Size: <%= job.companySize %></p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Company Website: <%= job.companyWebsite %></p>
+                </div>
+            </div>
+
+            <div class="col-lg-8 bg-light p-4 rounded">
                 <div class="">
                     <h4 class="mb-4">Apply For The Job</h4>
                     <form>
@@ -70,7 +122,7 @@
                             <div class="col-12">
                                 <textarea class="form-control" rows="5" placeholder="Coverletter"></textarea>
                             </div>
-                            <div class="col-12">
+                            <!-- <div class="col-12">
                                 <a href="/jobs/<%= job._id %>/apply">
                                     <button class="btn btn-primary w-100 mb-3" type="submit">Apply Now</button>
                                 </a>
@@ -80,32 +132,26 @@
                                         <input class="btn btn-danger w-100" type="submit" value="Delete">
                                     </form>
                                 <% } %>
-                            </div>
+                            </div> -->
                         </div>
                     </form>
                 </div>
             </div>
-
-            <div class="col-lg-4">
-                <div class="bg-light rounded p-5 pb-4 mb-2 wow slideInUp" data-wow-delay="0.1s">
-                    <h4 class="mb-4">Job Summery</h4>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: <%= job.createdAt %></p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: 789 Position</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Job Category: <%= job.category %></p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: <%= job.type %></p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: &#8377 <%= job.package %></p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Location: <%= job.address %></p>
-                    <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: <%= job.deadline %></p>
-                </div>
-                <div class="bg-light rounded p-5 pt-4 wow slideInUp" data-wow-delay="0.1s">
-                    <h4 class="mb-4">Company Detail</h4>
-                    <p><%= job.aboutCompany %></p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Company Phone: <%= job.companyPhone %></p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Company Email: <%= job.companyEmail %></p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Company Size: <%= job.companySize %></p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Company Website: <%= job.companyWebsite %></p>
+            <div class="col-lg-8 rounded">
+                <div class="col-12">
+                    <a href="/jobs/<%= job._id %>/apply">
+                        <button class="btn btn-primary w-100 mb-3" type="submit">Apply Now</button>
+                    </a>
+                    <% if (currentUser && currentUser.isAdmin) { %>
+                        <a class="btn btn-warning w-100 mb-3" href="/jobs/<%= job._id %>/edit">Edit</a>
+                        <form action="/jobs/<%= job._id %>?_method=DELETE" method="post">
+                            <input class="btn btn-danger w-100" type="submit" value="Delete">
+                        </form>
+                    <% } %>
                 </div>
             </div>
+
+            
         </div>
     </div>
 </div>
@@ -119,6 +165,9 @@
 <% } %>
 <% } %>
 
+
+
+<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
 
 <script>
     const myNav = document.querySelector(".my-navbar");
