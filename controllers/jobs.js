@@ -150,18 +150,27 @@ exports.applyJob = async function(req, res) {
 	try {
 		// cgpa validation
 		if (!req.user.cgpa) {
-			return res.send('you have not entered your cgpa');
+			return res.render('error', { 
+				message1 : 'You have not entered your CGPA',
+				message2: 'Please Enter Your CGPA and Try Again.'
+			 });
 		}
 		let { jobId } = req.params;
 		let job = await Job.findById(jobId);
 		// does the user pass required cgpa criteria
 		if (req.user.cgpa < job.cgpa) {
-			return res.send('your cgpa is not enough');
+			return res.render('error', { 
+				message1 : 'Your CGPA is Not Enough',
+				message2: 'Better Luck Next Time.'
+			 });
 		}
 		// a user can only apply once for a particular job
 		for (let user of job.appliedUsers) {
 			if (user._id.equals(req.user._id)) {
-				return res.send('you can only apply once');
+				return res.render('error', { 
+					message1 : 'You Have Already Applied For This Job.',
+					message2: 'Try For Other Opportunities Available out There.'
+				 });
 			}
 		}
 		job.appliedUsers.push(req.user);

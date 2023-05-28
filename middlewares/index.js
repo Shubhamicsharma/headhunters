@@ -12,7 +12,10 @@ const isAdmin = function(req, res, next) {
 	if (req.user && req.user.isAdmin) {
 		next();
 	} else {
-		return res.send('you dont have permission to do that');
+		return res.render('error', { 
+			message1 : 'You Do not have permissions to do that',
+			message2: 'Only Admin can do that'
+		 });
 	}
 };
 module.exports = {
